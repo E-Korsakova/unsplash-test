@@ -12,23 +12,14 @@ export const App: React.FC = () => {
 
   const dispatch = useAppDispatch();
   const {results, currQuery, hasMore, currentPage, loading, isError, activeModal} = useAppSelector((state) => state.images)
-
+  console.log(currQuery && !loading && results.length === 0 && !isError)
   return (
     <div className={isStart ? styles.appOnSearch : styles.app} id="scrollableDiv">
-      {/* {results.map((img) => {
-        return (
-          <div key={img.id}>
-            <img src={img.urls.regular} alt={img.alt_description} />
-            <img src={img.urls.small} alt={img.alt_description} />
-            <img src={img.urls.thumb} alt={img.alt_description} />
-          </div>
-        )
-      })} */}
       <Modal active={activeModal}/>
       <SearchPanel setIsStart={setIsStart} isStart={isStart}/>
-      {currQuery && !loading && currentPage === 1 && !isError && <span className={styles.noResultText}>К сожалению, поиск не дал результатов</span>}
-      <div id="scrollableDiv">
-        {results.length > 0 && (
+      {currQuery && !loading && results.length === 0 && !isError && <span className={styles.noResultText}> K сожалению, поиск не дал результатов</span>}
+      {results.length > 0 && (
+        <div id="scrollableDiv">
           <InfiniteScroll
             dataLength={results.length}
             next={() => {
@@ -61,9 +52,9 @@ export const App: React.FC = () => {
                 </div>
               ))}
             </div>
-          </InfiniteScroll>
-        )}
-      </div>
+          </InfiniteScroll>  
+        </div>
+      )}
     </div>
   )
 }
