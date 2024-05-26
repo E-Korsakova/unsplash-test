@@ -1,0 +1,78 @@
+.app, .appOnSearch {
+    width: 390px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 230px;
+    overflow-y: auto;
+
+    @media (min-width: 1360px) {
+        height: 100vh;
+        width: 100%;
+        padding-top: 0;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.appOnSearch {
+    padding-top: 0;
+    overflow-y: auto;
+
+    @media (min-width: 1360px) {
+        padding-top: 0;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        width: 1280px;
+        height: 100vh;
+        padding-left: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+.gallery {
+    padding-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 110px;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    // height: 100%;
+    // overflow-y: visible;
+}
+
+.container, .emptyContainer {
+    height: 114px;
+    width: 114px;
+
+    @media (min-width: 1360px) {
+        height: 204px;
+        width: 204px;
+    }
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.emptyContainer {
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+}
+
+.noResultText {
+    font-size: 16px;
+    color: #787878;
+    padding-top: 24px;
+}
