@@ -11,8 +11,8 @@ export const App: React.FC = () => {
   const [isStart, setIsStart] = useState(false);
 
   const dispatch = useAppDispatch();
-  const {results, currQuery, hasMore, currentPage, loading, isError, activeModal} = useAppSelector((state) => state.images)
-  
+  const {results, currQuery, hasMore, currentPage, loading, isError, activeModal} = useAppSelector((state) => state.images);
+
   return (
     <div className={isStart ? styles.appOnSearch : styles.app} id="scrollableDiv">
       <Modal active={activeModal}/>

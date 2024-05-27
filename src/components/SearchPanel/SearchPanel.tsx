@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
+import deleteIcon from '../../assets/icons/delete.svg';
+
 import { useAppDispatch } from '../../hooks'
 import { useState } from 'react'
 
@@ -35,6 +37,11 @@ export const SearchPanel = ({isStart, setIsStart}: SearchPanelProps) => {
                 enterKeyHint='enter' 
                 onChange={(evt) => setQuery(evt.target.value)}
             />
+            {query && <img src={deleteIcon} alt='click to clear the search query' className={isStart ? styles.deleteIconOnSearch : styles.deleteIcon} onClick={() => {
+                setQuery('');
+                dispatch(setCurrentQuery(''));
+                setIsStart(false);
+            }}/>}
             <button type='submit' className={styles.button} onClick={(evt) => {
                 evt.preventDefault();
                 search();

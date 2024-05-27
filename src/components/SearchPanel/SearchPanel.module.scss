@@ -22,6 +22,7 @@
 
 .onSearchPanel {
     position: fixed;
+    z-index: 10;
 }
 
 .icon {
@@ -42,8 +43,13 @@
     font-size: 16px;
     color: #000;
     background-color: #eee;
+    cursor: pointer;
     &::placeholder {
         color: #9c9c9c;
+    }
+
+    &:focus {
+        outline: none;
     }
 
     @media (min-width: 1360px) {
@@ -51,8 +57,27 @@
     }
 }
 
+.deleteIcon, .deleteIconOnSearch {
+    position: absolute;
+    right: calc(20% + 25px);
+    z-index: 11;
+    cursor: pointer;
+
+    @media (min-width: 1360px) {
+        right: 20%;
+    }
+}
+
+.deleteIconOnSearch {
+    @media (min-width: 1360px) {
+        left: 435px;
+    }
+}
+
 .button {
-    height: 48px;
+    // box-sizing: border-box;
+    height: 52px;
+    min-width: 84px;
     width: 20%;
     border: none;
     border-radius: 12px;
@@ -68,6 +93,7 @@
     }
 
     @media (min-width: 1360px) {
+        height: 48px;
         width: 84px;
     }
 }

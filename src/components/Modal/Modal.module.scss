@@ -3,7 +3,7 @@
     width: 100vw;
     background-color: rgba($color: #000000, $alpha: 0.5);
     position: fixed;
-    z-index: 2;
+    z-index: 20;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -44,13 +44,8 @@
 
 .icon {
     position: absolute;
-    color: #fff;
-    border: 1px solid rgba($color: #000000, $alpha: 0.3);
-    background-color: rgba($color: #000000, $alpha: 0.3);
-    border-radius: 50%;
     top: 16px; 
     right: 16px; 
-    font-size: 32px;
     cursor: pointer;
 
     @media (min-width: 1360px) {
