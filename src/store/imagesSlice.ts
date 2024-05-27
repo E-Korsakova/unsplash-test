@@ -47,7 +47,6 @@ export const getImages = createAsyncThunk<InitialStateType, {query: string, page
         const response = await fetch(`https://api.unsplash.com/search/photos?client_id=Ip0XA55zY7b7-d19osq1L5btGg-YCeDZVpnnJjXqHxs&query=${query}&page=${page}`);
         if (!response.ok) rejectWithValue('No Data!')
         const data = await response.json();
-    console.log(data)
         return data;
     }
 )
@@ -66,6 +65,7 @@ export const imagesSlice = createSlice({
         },
         setCurrentQuery(state, action) {
             state.currQuery = action.payload;
+            state.hasMore = true;
             state.results = [];
         }
     },
@@ -84,7 +84,6 @@ export const imagesSlice = createSlice({
             state.loading = false;
         })
         .addMatcher(isError, (state, action: PayloadAction<string>) => {
-            console.log(action.payload)
             state.loading = false;
             state.hasMore = false;
             state.isError = action.payload;
